@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Majors]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Mjr_Name] NVARCHAR(50) NULL
+)

@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[ProjectStage]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [StageName] NVARCHAR(50) NULL
+)

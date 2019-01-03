@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__RefactorLog">
+    <Key>
+      <PropertyRef Name="OperationKey" />
+    </Key>
+    <Property Name="OperationKey" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Major">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Mjr_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Students" Relationship="Model.FK__Students__Std_Ma__5CD6CB2B" FromRole="Major" ToRole="Student" />
+    <NavigationProperty Name="StaffMembersContacts" Relationship="Model.FK__StaffMemb__Major__6EF57B66" FromRole="Major" ToRole="StaffMembersContact" />
+    <NavigationProperty Name="StaffMembersContacts1" Relationship="Model.FK__StaffMemb__Major__6EF57B661" FromRole="Major" ToRole="StaffMembersContact" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Prj_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Prj_Desc" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Prj_StageId" Type="Int32" />
+    <Property Name="Prj_LevelId" Type="Int32" />
+    <NavigationProperty Name="Staff_Projects_Roles" Relationship="Model.ProjectId" FromRole="Project" ToRole="Staff_Projects_Roles" />
+    <NavigationProperty Name="Student_Projects" Relationship="Model.StudentProjectId" FromRole="Project" ToRole="Student_Projects" />
+  </EntityType>
+  <EntityType Name="ProjectStage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="StageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Staff_Projects_Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="StaffId" Type="Int32" />
+    <Property Name="ProjectId" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" />
+    <NavigationProperty Name="StaffMembersContact" Relationship="Model.StaffId" FromRole="Staff_Projects_Roles" ToRole="StaffMembersContact" />
+    <NavigationProperty Name="Project" Relationship="Model.ProjectId" FromRole="Staff_Projects_Roles" ToRole="Project" />
+    <NavigationProperty Name="StaffRole" Relationship="Model.RoleID" FromRole="Staff_Projects_Roles" ToRole="StaffRole" />
+  </EntityType>
+  <EntityType Name="StaffMembersContact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" annotation:StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Staff_FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Staff_LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Staff_Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Staff_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="RoleId" Type="Int32" />
+    <NavigationProperty Name="Staff_Projects_Roles" Relationship="Model.StaffId" FromRole="StaffMembersContact" ToRole="Staff_Projects_Roles" />
+    <Property Name="RowId" Type="Guid" Nullable="false" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="StaffRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Role_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Role_Desc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Staff_Projects_Roles" Relationship="Model.RoleID" FromRole="StaffRole" ToRole="Staff_Projects_Roles" />
+  </EntityType>
+  <EntityType Name="Student_Projects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="ProjectId" Type="Int32" />
+    <NavigationProperty Name="Project" Relationship="Model.StudentProjectId" FromRole="Student_Projects" ToRole="Project" />
+    <NavigationProperty Name="Student" Relationship="Model.ProjectStudentId" FromRole="Student_Projects" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Std_FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Std_LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Std_MajorId" Type="Int32" Nullable="false" />
+    <Property Name="Std_Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Std_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Student_Projects" Relationship="Model.ProjectStudentId" FromRole="Student" ToRole="Student_Projects" />
+    <NavigationProperty Name="Major" Relationship="Model.FK__Students__Std_Ma__5CD6CB2B" FromRole="Student" ToRole="Major" />
+  </EntityType>
+  <EntityContainer Name="Research_ManagementEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
+    <EntitySet Name="Majors" EntityType="Self.Major" />
+    <EntitySet Name="Projects" EntityType="Self.Project" />
+    <EntitySet Name="ProjectStages" EntityType="Self.ProjectStage" />
+    <EntitySet Name="Staff_Projects_Roles" EntityType="Self.Staff_Projects_Roles" />
+    <EntitySet Name="StaffMembersContacts" EntityType="Self.StaffMembersContact" />
+    <EntitySet Name="StaffRoles" EntityType="Self.StaffRole" />
+    <EntitySet Name="Student_Projects" EntityType="Self.Student_Projects" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <AssociationSet Name="StaffId" Association="Model.StaffId">
+      <End Role="StaffMembersContact" EntitySet="StaffMembersContacts" />
+      <End Role="Staff_Projects_Roles" EntitySet="Staff_Projects_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectId" Association="Model.ProjectId">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="Staff_Projects_Roles" EntitySet="Staff_Projects_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="RoleID" Association="Model.RoleID">
+      <End Role="StaffRole" EntitySet="StaffRoles" />
+      <End Role="Staff_Projects_Roles" EntitySet="Staff_Projects_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="StudentProjectId" Association="Model.StudentProjectId">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="Student_Projects" EntitySet="Student_Projects" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectStudentId" Association="Model.ProjectStudentId">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Student_Projects" EntitySet="Student_Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Students__Std_Ma__5CD6CB2B" Association="Model.FK__Students__Std_Ma__5CD6CB2B">
+      <End Role="Major" EntitySet="Majors" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StaffMemb__Major__6EF57B66" Association="Model.FK__StaffMemb__Major__6EF57B66">
+      <End Role="Major" EntitySet="Majors" />
+      <End Role="StaffMembersContact" EntitySet="StaffMembersContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StaffMemb__Major__6EF57B661" Association="Model.FK__StaffMemb__Major__6EF57B661">
+      <End Role="Major" EntitySet="Majors" />
+      <End Role="StaffMembersContact" EntitySet="StaffMembersContacts" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="StaffId">
+    <End Type="Model.StaffMembersContact" Role="StaffMembersContact" Multiplicity="0..1" />
+    <End Type="Model.Staff_Projects_Roles" Role="Staff_Projects_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StaffMembersContact">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Staff_Projects_Roles">
+        <PropertyRef Name="StaffId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectId">
+    <End Type="Model.Project" Role="Project" Multiplicity="0..1" />
+    <End Type="Model.Staff_Projects_Roles" Role="Staff_Projects_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Staff_Projects_Roles">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleID">
+    <End Type="Model.StaffRole" Role="StaffRole" Multiplicity="0..1" />
+    <End Type="Model.Staff_Projects_Roles" Role="Staff_Projects_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StaffRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Staff_Projects_Roles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StudentProjectId">
+    <End Type="Model.Project" Role="Project" Multiplicity="0..1" />
+    <End Type="Model.Student_Projects" Role="Student_Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student_Projects">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectStudentId">
+    <End Type="Model.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="Model.Student_Projects" Role="Student_Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student_Projects">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Students__Std_Ma__5CD6CB2B">
+    <End Type="Model.Major" Role="Major" Multiplicity="1" />
+    <End Type="Model.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Major">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="Std_MajorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

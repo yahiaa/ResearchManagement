@@ -1,0 +1,50 @@
+﻿@model ResearchManagementProject.Models.ViewModels.CRUDStudentViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CRUDStudentViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Std_FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Std_FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Std_LasttName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Std_LasttName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_Phone)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

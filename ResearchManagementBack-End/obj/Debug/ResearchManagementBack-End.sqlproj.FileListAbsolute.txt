@@ -1,0 +1,9 @@
+C:\Users\YAHIA\source\repos\ResearchManagement\ResearchManagementBack-End\bin\Debug\ResearchManagementBack-End.dacpac
+C:\Users\YAHIA\source\repos\ResearchManagement\ResearchManagementBack-End\bin\Debug\ResearchManagementBack_End.dll
+C:\Users\YAHIA\source\repos\ResearchManagement\ResearchManagementBack-End\bin\Debug\ResearchManagementBack_End.pdb
+C:\Users\YAHIA\source\repos\ResearchManagement\ResearchManagementBack-End\obj\Debug\Model.xml
+C:\Users\YAHIA\source\repos\ResearchManagement\ResearchManagementBack-End\obj\Debug\refactor.xml
+C:\Users\YAHIA\source\repos\ResearchManagement\ResearchManagementBack-End\obj\Debug\postdeploy.sql
+C:\Users\YAHIA\source\repos\ResearchManagement\ResearchManagementBack-End\obj\Debug\predeploy.sql
+C:\Users\YAHIA\source\repos\ResearchManagement\ResearchManagementBack-End\obj\Debug\ResearchManagementBack_End.dll
+C:\Users\YAHIA\source\repos\ResearchManagement\ResearchManagementBack-End\obj\Debug\ResearchManagementBack_End.pdb

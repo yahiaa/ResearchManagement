@@ -1,0 +1,21 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The type for column MajorId in table [dbo].[StaffMembersContacts] is currently  NCHAR (10) NULL but is being changed to 
+         INT NULL. Data loss could occur.
+
+** User actions
+     Alter
+       [dbo].[StaffMembersContacts] (Table)
+     Create
+       Foreign Key: unnamed constraint on [dbo].[StaffMembersContacts] (Foreign Key)
+
+** Supporting actions
+
+The type for column MajorId in table [dbo].[StaffMembersContacts] is currently  NCHAR (10) NULL but is being changed to  INT NULL. Data loss could occur.
+

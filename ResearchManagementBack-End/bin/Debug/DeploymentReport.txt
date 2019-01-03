@@ -1,0 +1,21 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[Projects]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Table rebuild
+       [dbo].[Projects] (Table)
+
+** Supporting actions
+     Drop
+       [dbo].[ProjectId] (Foreign Key)
+       [dbo].[StudentProjectId] (Foreign Key)
+     Create
+       [dbo].[ProjectId] (Foreign Key)
+       [dbo].[StudentProjectId] (Foreign Key)

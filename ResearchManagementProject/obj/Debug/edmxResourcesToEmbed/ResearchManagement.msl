@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Research_ManagementEntities">
+    <EntitySetMapping Name="C__RefactorLog">
+      <EntityTypeMapping TypeName="Model.C__RefactorLog">
+        <MappingFragment StoreEntitySet="__RefactorLog">
+          <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Majors">
+      <EntityTypeMapping TypeName="Model.Major">
+        <MappingFragment StoreEntitySet="Majors">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Mjr_Name" ColumnName="Mjr_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="Model.Project">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Prj_Name" ColumnName="Prj_Name" />
+          <ScalarProperty Name="Prj_Desc" ColumnName="Prj_Desc" />
+          <ScalarProperty Name="Prj_StageId" ColumnName="Prj_StageId" />
+          <ScalarProperty Name="Prj_LevelId" ColumnName="Prj_LevelId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectStages">
+      <EntityTypeMapping TypeName="Model.ProjectStage">
+        <MappingFragment StoreEntitySet="ProjectStage">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StageName" ColumnName="StageName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staff_Projects_Roles">
+      <EntityTypeMapping TypeName="Model.Staff_Projects_Roles">
+        <MappingFragment StoreEntitySet="Staff_Projects_Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaffMembersContacts">
+      <EntityTypeMapping TypeName="Model.StaffMembersContact">
+        <MappingFragment StoreEntitySet="StaffMembersContacts">
+          <ScalarProperty Name="Id" ColumnName="MajorId" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Staff_FirstName" ColumnName="Staff_FirstName" />
+          <ScalarProperty Name="Staff_LastName" ColumnName="Staff_LastName" />
+          <ScalarProperty Name="Staff_Phone" ColumnName="Staff_Phone" />
+          <ScalarProperty Name="Staff_Email" ColumnName="Staff_Email" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaffRoles">
+      <EntityTypeMapping TypeName="Model.StaffRole">
+        <MappingFragment StoreEntitySet="StaffRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+          <ScalarProperty Name="Role_Desc" ColumnName="Role_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student_Projects">
+      <EntityTypeMapping TypeName="Model.Student_Projects">
+        <MappingFragment StoreEntitySet="Student_Projects">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="Model.Student">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Std_FirstName" ColumnName="Std_FirstName" />
+          <ScalarProperty Name="Std_LastName" ColumnName="Std_LastName" />
+          <ScalarProperty Name="Std_MajorId" ColumnName="Std_MajorId" />
+          <ScalarProperty Name="Std_Phone" ColumnName="Std_Phone" />
+          <ScalarProperty Name="Std_Email" ColumnName="Std_Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

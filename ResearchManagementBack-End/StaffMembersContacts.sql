@@ -1,0 +1,12 @@
+﻿CREATE TABLE [dbo].[StaffMembersContacts]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Staff_FirstName] NVARCHAR(50) NULL, 
+    [Staff_LastName] NVARCHAR(50) NULL,		
+    [Staff_Phone] NVARCHAR(20) NULL, 
+    [Staff_Email] NVARCHAR(40) NULL, 
+	RowId UNIQUEIDENTIFIER ROWGUIDCOL NOT NULL UNIQUE DEFAULT NEWSEQUENTIALID(),
+	Photo VARBINARY(MAX) FILESTREAM,
+    [MajorId] NVARCHAR(40),
+    [RoleId] INT NULL
+)
